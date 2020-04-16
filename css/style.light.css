@@ -481,11 +481,13 @@ strong {
 }
 h1,
 h2,
-h3,
 h4,
 h5,
 h6 {
   color: #555;
+}
+h3 {
+  color: #13c2c2;
 }
 .site-header {
   padding: 2.5rem 0;
