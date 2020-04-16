@@ -487,7 +487,7 @@ h6 {
   color: #555;
 }
 h3 {
-  color: #13c2c2;
+  color: #13c2c2 !important;
 }
 .site-header {
   padding: 2.5rem 0;
