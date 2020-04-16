@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html>
+  <!-- Html Head Tag-->
+  <head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="陈sis">
+  <!-- Open Graph Data -->
+  <meta property="og:title" content="web前端性能优化"/>
+  <meta property="og:description" content="" />
+  <meta property="og:site_name" content="陈sis的笔记"/>
+  <meta property="og:type" content="article" />
+  <meta property="og:image" content="http://yoursite.com"/>
+  
+    <link rel="alternate" href="/atom.xml" title="陈sis的笔记" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+
+  <!-- Site Title -->
+  <title>陈sis的笔记</title>
+
+  <!-- Bootstrap CSS -->
+  
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+
+  <!-- Custom CSS -->
+  
+  
+<link rel="stylesheet" href="/css/style.light.css">
+
+
+  <!-- Google Analytics -->
+  
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+  <body>
+    <!-- Page Header -->
+
+
+<header class="site-header header-background" style="background-image: url(/img/default-banner-dark.jpg)">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="page-title with-background-image">
+          <p class="title">web前端性能优化</p>
+          <p class="subtitle"></p>
+        </div>
+        <div class="site-menu with-background-image">
+          <ul>
+            
+              <li>
+                <a href="/">
+                  
+                  Home
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="/archives">
+                  
+                  Archives
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="https://github.com/<your-github-username>" target="_blank" rel="noopener">
+                  
+                  Github
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="mailto:<your-email-address>">
+                  
+                  Email
+                  
+                </a>
+              </li>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<article>
+  <div class="container typo">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-info text-muted">
+          
+            <!-- Author -->
+            <span class="author info">By 陈sis</span>
+          
+          <!-- Date -->
+          <span class="date-time info">On
+            <span class="date">2020-04-16</span>
+            <span class="time">16:11:28</span>
+          </span>
+          
+        </div>
+        <!-- Tags -->
+        
+        <!-- Post Main Content -->
+        <div class="post-content">
+          <p>想要成为一名合格的Web前端工程师，Web前端性能优化是一个必须要掌握的知识，那么应该怎么进行Web前端性能优化呢？</p>
+<h3>Web前端性能优化原理问题</h3>
+
+<p>前端性能优化，资源的合并与压缩，图片编码的原理，以及类型的选择，浏览器的渲染机制，懒加载，预加载，浏览器存储，缓存机制，PWA和Vue-SSR等。<br>技术栈，Vue.js和Chrome，调试工具performance和layers。那么什么是前端性能优化原理的点，涉及作用以及原理，如何与真实的项目场景结合，理论结合实战经验，进行量化分析。<br>前端优化，一般是先基础优化（图片编码原理等问题），高一点 即为 进阶优化（浏览器的渲染机制，浏览器的存储，优化），结合服务端进行优化（首屏渲染等问题）等。<br>前端性能优化方案，最小化HTTP的请求，使用内容交付网络，避免空src或是href，添加过期或者是缓存控制标头，gzip组件，将styleSheets放在顶部，将脚本放在最下面，避免css表达式，减少dns的查找，将js和css设置为外部，避免重定向，配置etag，使用ajax缓存，减少dom元素的数量，没有404，减少cookie的大小，不缩放HTML中的图像，避免使用过滤器，使用favicon.icon小型且可缓存。</p>
+<h3>面试官拷问</h3>
+
+<p>面试官：为什么要进行前端优化？图片在前端是如何解码的？浏览器渲染加载的过程是如何进行的？懒加载和预加载的原理是什么样的？懒加载和预加载的应用场景是什么样的？PWA和VUE-SSR等原理的是怎么样的？</p>
+<p>面试官深度拷问每个优化性能后的原理是怎么样的？结合你自己做过的项目性能优化的原理是怎么样的？说说你在项目中使用过性能优化后的感悟心得？说说每个性能优化原理最适合的场景过程。</p>
+<p>面试人员想要了解你掌握多少性能优化的原理，了解你做过项目上是否使用过性能优化，分析自身做过的项目，找到需要性能优化的点，选择合适的性能优化等。</p>
+<p>影响前端性能的有图像，样式表，脚本，flash等，减少组件的数量，减少所需的HTTP请求的数量，即可加快页面的速度。</p>
+<h3>前端性能优化，资源的合并与压缩</h3>
+
+<p>合并文件是一种通过将所有脚本合并为一个脚本，类似将所有css合并为一个样式表来减少HTTP请求数量的方法。<br>实现性能优化，第一，减少我们的HTTP请求的数量，以及减少请求的资源大小，第二，资源的压缩与合并的原理是什么。压缩与合并前是什么样的效果，压缩与合并后又有什么区别。</p>
+<p>拷问：浏览器的一个请求从发送到返回是一个怎样的过程？</p>
+<p>url分解，协议名称，层级url的标记符号，固定不变，访问资源需要的凭证信息，从哪个服务器获取数据，需要连接的端口号，指向资源的层级文件路径，查询字符串，片段id。<br>客户端，走HTTP应用层，tcp传输层，ip网络层，数据链路层网络</p>
+<p>分层由高到低分别为：应用层、传输层、网络层、数据链路层。发送端从应用层往下走，接收端从数据链路层往上走。</p>
+<p>应用层客户端发送HTTP请求，报文首部，空行，报文主体，报文首部含请求行，请求首部字段，实体首部字段，其他。</p>
+<p>SYN （Synchronize Sequence Numbers）同步序列编号<br>ACK  (Acknowledgement）确认字符</p>
+<p>过程，用户先在浏览器中输入一个url，浏览器内部中的核心代码会将这个输入的url拆分解析，然后将domain传给dns服务器，dns服务会根据domain查询相关的post对应的ip地址，然后将ip地址传递给浏览器，浏览器有ip地址，就知道浏览器要到哪里去，持有ip地址知道这个请求发送到哪里去。就跟随协议，请求的参数都会在协议中携带，发送到网络中去，然后通过局域网，交换机，路由器，主干网络，到达服务端。</p>
+<p>服务端是有一个MVC的架构的，请求首先会进入Controller中，在Controller中进行相关的逻辑处理，以及请求的分发，调用Model层，负责和数据进行交互，model层会读取Redis和db里面的数据。然后通过view层给到网络，由服务端到浏览器端，浏览器主要是做render的过程，render的过程就是通过浏览器请求回来的HTML，css，JavaScript等渲染的过程，会形成相关的dom树，以及对应的css树，在页面上进行相应的样式渲染。</p>
+<h3>拷问，从浏览器到服务器的过程中，那几个点，哪些过程可以进行我们的前端优化呢？</h3>
+
+<p>client浏览器与server通过http协议通讯，http协议属于应用层协议，http属于tcp协议，所以client与server主要通过socket进行通讯。</p>
+<p>tcp属于传输层协议，走https需要会话层tls,ssl等协议。</p>
+<p>浏览器，dns服务器，服务器等，dns上我们可以进行缓存，来优化前端性能，路由器层面，url层面进行数据缓存，这样访问的时间就会被缩短了很多。</p>
+<p>网络请求的过程，带宽，网络的选择，涉及到缓存，可以使用cdn，cdn是请求静态资源用的，请求静态资源，那么cookie是没有用的，所以希望在请求静态资源中，把这个cookie给去掉，这里注意cdn的域名不要和主站的域名一致，防止携带cookie。</p>
+<p>如何减少我们HTTP请求的大小，每一个HTTP请求都要走网络环境才能达到我们的服务器，每一次请求都有网络环境的损耗，把多次HTTP请求减少到一次，减少网络环境中的损耗。也可以从服务器端出发，先把反映到页面中效果进行渲染，然后直出到网页上。</p>
+<p>每一次请求都有网络环境的损耗，我们可以把多次HTTP请求合并成一次，从而减少相同的环境损耗。</p>
+<p>带宽，一个HTTP的请求大小能够较小的话，访问就比较快一些，浏览器端的渲染过程，使用框架，就要从浏览器中进行渲染，框架中的模板是要在浏览器中进行渲染的，这个在框架中进行渲染，不利于首屏，对首屏有很大的损耗，不利于前端的性能。</p>
+<p>服务器的渲染，将HTML渲染后直出到我们浏览器页面，不是在浏览器中进行渲染了。</p>
+<p>前端性能优化点，通过HTTP请求的过程，可以了解到，我们可以通过dns进行缓存从而减少dns查询的时间，网络请求的过程走最近的网络环境，相同的静态资源进行缓存，减少HTTP请求的大小，减少HTTP请求，服务器端渲染，从业务中进行前端优化点。</p>
+<p>重点，深入了解一下HTTP的请求过程，就可以知道前端性能优化的核心要点</p>
+<h3>资源的合并与压缩</h3>
+
+<p>减少资源体积，gzip压缩，js混淆，css压缩，图片压缩。</p>
+<p>减少HTTP请求的数量即为合并，减少HTTP请求的大小即为压缩。可以对HTML进行压缩，css进行压缩，js进行压缩和混乱，文件合并，开启gzip等。</p>
+<h3>进行HTML压缩</h3>
+
+<p>第一使用在线网站压缩，使用html-minifier工具进行压缩，后端模板引擎渲染压缩。</p>
+<h3>进行css压缩</h3>
+
+<p>css sprite是减少图像请求数量的首选方法，将背景图像合并为单个图像。</p>
+<p>CSS Sprites在国内很多人叫CSS精灵，是一种网页图片应用处理方式。它允许你将一个页面涉及到的所有零星图片都包含到一张大图中去，这样一来，当访问该页面时，载入的图片就不会像以前那样一幅一幅地慢慢显示出来了。对于当前网络流行的速度而言，不高于200KB的单张图片的所需载入时间基本是差不多的，所以无需顾忌这个问题。</p>
+<p>第一进行无效代码的删除，第二是css语义合并，使用在线网站压缩，使用html-minifier对HTML中的css进行压缩，使用clean-css对css进行压缩。</p>
+<p>用CSSbackground-image和background-position属性显示所需的图像段</p>
+<h3>进行js的压缩和混乱</h3>
+
+<p>第一删除无效字符，剔除注解，代码语义的缩减和优化，代码的保护，可以使用在线网站进行压缩，html-minifier对html中的js进行压缩，使用uglifyjs2对js进行压缩</p>
+<p>（1）将table改为div布局<br>（2）缩减精简div、span、ul、li等系列标签<br>（3）删除多余空格<br>（4）表格类型布局时候适当使用table替代div布局<br>（5）网页GZIP压缩</p>
+<h3>文件的合并</h3>
+
+
+<p>文件与文件之间有插入的上行请求，增加了N-1个网络延迟，受丢包问题影响更加严重，经过代理服务器时可能会被断开。合并文件存在首屏渲染问题，缓存失败问题，js文件比较大，请求比较慢，得请求回来后才会首屏HTML渲染，js是由缓存的，文件合并如果其中某个js文件有变化，就会导致缓存失败的问题，如果文件不合并，修改其中的某一个js文件，只会导致该文件缓存失效，其他的不会受影响。文件合并，存在很严重的缓存失效问题。</p>
+<p>那么是否进行文件的合并，建议可以将公共库单独打包成一个文件，业务单独打包成一个文件，不同页面的合并，将不同页面的js不同打包，</p>
+<p>如何进行文件合并，在线网站进行文件合并，使用nodejs实现文件合并</p>
+<h3>实战资源和与压缩</h3>
+实战页面开发，网站进行压缩与合并，fis进行自动化的压缩与合并。
+
+<p>压缩前<br><img src="/2020/04/16/web%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/20204_1.webp" alt><br>压缩后<br><img src="/2020/04/16/web%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/20204_2.png" alt></p>
+<h3>前端自动化的构造实现压缩与合并</h3>
+
+<p>fis3是一款百度内的构建工具，start-&gt;getSource()-&gt;所有文件是否编译完成，（单文件的编译，另个走向为打包的过程）。<br>fis3的配置文件，fis-conf.js<br><img src="/2020/04/16/web%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/20204_3.jpg" alt></p>
+<h3>压缩后，优化前后性能对比，还是要性能优化得好，大的资源效果很明显</h3>
+加载优化，合并CSS，JavaScript，合并小图片，缓存一切可以缓存的资源，使用外联样式引用CSS和JavaScript，压缩HTML，css，JavaScript，启用GZIP，使用首屏加载，按需加载，滚屏加载，增加加载进度条，减少cookie，避免重定向，异步加载第三方资源。
+
+<p>css优化，css写在头部，JavaScript写在尾部，避免图片和Frame等的空Src，尽量避免重设置图片大小，图片尽量避免使用DataURL，尽量避免写在HTML标签中写style属性，避免css的表达式，移除空的css规则，正确使用display的属性，不滥用float，不滥用web字体，不滥用过多的Font-size，值为0时不需要任何单位，标准化各种浏览器前缀，避免让选择符看起来像正则表达式。</p>
+<p>渲染优化，HTML使用viewport，减少dom节点，尽量使用css3动画，合理使用requestAnimationFrame动画代替setTimeout，适当使用Canvas动画，Touchmove，Scroll事件会导致多次渲染，使用CSS3 transitions，CSS3 3d，transforms，Opacity，Canvas等来触发GPU渲染。</p>
+<p>脚本优化，减少重绘和回流，缓存dom选择与计算，缓存列表length，尽量使用事件代理，避免批量绑定事件，尽量使用id选择器，使用touchstart，touchend代替click。</p>
+<p>图片优化，使用css3，svg，iconfont代替图片，使用srcset，web优于jpg，png8优于gif，首次加载不大于1014kb，图片不宽于640。</p>
+<p>注意，在我们修改后端响应时间缩短一半时，整体响应事件只能减少5-10%，而优化前端性能，缩短一半时，整体响应可以减少40-45%。</p>
+<p>前端优化的意义 HTTP请求的过程是进行优化的核心 压缩和合并的原理</p>
+<h3>图片优化的过程</h3>
+图片加载处理，图片预加载，图片懒加载，首屏加载时进度条的显示。异步请求的优化，使用正常的json数据格式进行交互，部分常用数据的缓存。
+
+<p>图像映射将多个图像合并为一个图像，整体大小大致相同，但是减少HTTP请求的数量可以加快页面的速度。</p>
+<p>png8、png24、png32区别</p>
+<p>png8为256颜色，支持透明，png24为2的24次幂，不支持透明，png32为2的24次幂，支持透明。</p>
+<p>jpg有损压缩，压缩率高，不支持透明，png支持透明，浏览器兼容好，webp压缩程度更好，在ios webview有兼容性问题，svg矢量图，代码内嵌，相对较小。</p>
+<p>jpg使用场景，用在不需要透明图片，png使用场景，用在需要透明图片的场景，webp用在安卓，svg矢量图用在图片样式相对简单的业务。</p>
+<p>css雪碧图，把一些图片整合到一张单独的图片中，用来减少请求数量，问题出在图片大，如果没有加载成功的话，慢，也是有问题的。image inline，把图片的内容内嵌到HTML上，与HTML存在，作为base64的格式，可以减少你的网站的HTTP请求数量。使用矢量图svg，绘制功能，使用iconfont解决icon问题。</p>
+<p>webp使用在安卓下，它具更好的图像数据压缩算法，和无损和有损的压缩模式，alpha透明，动画的特性。</p>
+<p>HTML渲染过程：顺序执行（词法分析），并发加载，是否阻塞，依赖关系，引入方式。</p>
+<p>css阻塞，css head中阻塞页面的渲染，css阻塞js的执行，css不阻塞外部脚本的加载。</p>
+<p>js阻塞，引入js阻塞页面的渲染，js不阻塞资源的加载，js顺序执行，阻塞后续js逻辑的执行。</p>
+<h3>图片压缩与拼接</h3>
+PNG、PNG-8、PNG-24以及JPEG格式图片区别
+
+<p>PNG格式适合对透明度有要求的情形，PNG-8处理不了复杂色域下的渐变，PNG-24可以几乎不失真地保留渐变</p>
+<h3>图片压缩方法</h3>
+使用Photoshop自带图片压缩，文件—存储为Web所用格式，一般情况下，JPEG选择输出质量为70~80%可以保证视觉上几乎没有差异。
+
+<p>页面体积</p>
+<p>优化前后文件体积压缩率 = 优化后的体积÷优化前的体积<br><img src="/2020/04/16/web%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/20204_4.webp" alt></p>
+<h3>懒加载原理</h3>
+
+<p>什么是懒加载的定义是对于图片而言，图片资源，对于商城项目图片是很多的，页面很长的业务场景适用，减少无效资源的加载，并发加载的资源过多会阻塞js的加载。</p>
+<p>当图片进入到我们可视区域，去请求加载资源</p>
+<p>懒加载的效果延迟加载</p>
+<h3>预加载原理</h3>
+
+<p>图片等静态资源使用前提前请求，资源在使用时从缓存中加载，提高用户体验。</p>
+<h3>什么是重绘与回流的机制？</h3>
+
+<p>频繁重绘与回流会导致ui频繁渲染，导致JavaScript变慢。回流，当render tree中的一部分因为元素的规模尺寸，布局等改变需要重新构建，会触发回流，重绘，当render tree中的一些元素需要修改属性，这些属性不影响元素的外观，风格，布局，就叫做重绘，如修改颜色等。</p>
+<p>所以回流一定会引起重绘，但是重绘不一定会引起回流。</p>
+<h3>掌握一些css属性</h3>
+
+<p><img src="/2020/04/16/web%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/20204_7.webp" alt></p>
+<p>将频繁重绘回流的元素单独出来，作为一个独立的图层，那么这个元素的重绘回流就只能影响这个图层中。</p>
+<p>把一个元素独立成独立的图层，用css属性</p>
+<p>避免使用触发重绘，回流的css属性，重绘和回流很频繁可以独立出来。</p>
+<h3>浏览器存储</h3>
+
+<p>了解什么是localstorage，cookie，sessionstorage，indexdb</p>
+<p>了解pwa和service worker的应用</p>
+<p>多种浏览器存储方式共存</p>
+<h3>什么是cookie</h3>
+
+<p>用cookie给服务端传递相关信息，让服务端来分别当前请求的是哪个客户端，cookie是1993年有的，它的目的就是为了区分HTTP的请求情况，本来HTTP请求就是无状态的，就是请求之后的连接就关闭了，cookie就是去维护客户端的状态。</p>
+<p>用于浏览器端和服务端的交互，客户端自身数据的存储。</p>
+<p>cookie有限制，作为浏览器存储大小有4kb左右，需要设置过期时间。</p>
+<p>cookie的生成方式，http response header的set-cookie，通过document.cookie可以读写cookie，cookie中的相关域名下面-cdn的流量损耗，httponly。</p>
+<h3>LocalStorage</h3>
+
+<p>专门用于浏览器存储，大小5M左右，接口封装好，本地缓存的方案，可提高首屏的加载速度。</p>
+<h3>SessionStorage</h3>
+
+<p>会话级别的浏览器存储，大小5M左右，在客户端使用，不和服务端进行通信，接口封装较好。</p>
+<h3>pwa是什么</h3>
+
+<p>它是一种web app 新模型，并不是指某一种前沿的技术，是一种渐进式的web app，是通过一系列新的web特性。pwa在没有网络的环境中也能提供基本的页面访问，web app没有网络的话接收不到基本页面的展示，但是pwa不会出现未连接到网络就导致显示不了页面。它很快速，对网页渲染以及网络数据访问很快速，融入特性，可以被添加到手机桌面等。</p>
+<h3>service worker是什么</h3>
+
+<p>它是一个脚本，浏览器独立于当前网页，将其在后台运行，实现一些不依赖的页面。具有拦截和处理网络请求的特性。</p>
+<h3>缓存策略</h3>
+
+<p>缓存，DNS缓存，CDN部署与缓存，http缓存</p>
+<p>了解cache-control，last-modified，etag。httpheader的属性，Cache-control属性，max-age，s-maxage，private，public，no-cache，no-store。</p>
+<p>浏览器在DNS解析中会消耗一定的时间，对一些访问量高的来说，需要做好DNS的缓存工作，CDN缓存，CDN作为静态资源文件的分发，做好静态资源的缓存工作，就能加快网站的加载速度，</p>
+<p>移动到优化，使用cache，减少重定向，首屏优化，保证首屏加载数据小于14kb，不滥用web字体。</p>
+<h3>服务端性能优化</h3>
+
+<p>服务器是node.js，所以也能进行优化。</p>
+<p>谷歌PageSpeed团队的测试表明，30~50KB（压缩后）是每个JavaScript文件大小的合适范围：既达到了能够减少小文件带来的网络延迟，还能确保递增及分层式的执行。–web性能权威指南<br><img src="/2020/04/16/web%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/20204_5.webp" alt></p>
+<p>减少HTTP请求，合并js文件，合并css文件，使用css sprite，使用base64表示简单的图片。</p>
+<p>移动端优化，长列表滚动优化，函数防抖和函数节流，使用touchstart，touchend代替click，html的viewport设置，开启gpu渲染加速。<br><img src="/2020/04/16/web%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/20204_6.png" alt></p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+    <!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <p class="copyright text-muted">
+          Theme By <a target="_blank" href="https://github.com/levblanc">Levblanc.</a>
+          Inspired By <a target="_blank" href="https://github.com/klugjo/hexo-theme-clean-blog">Clean Blog.</a>
+        <p class="copyright text-muted">
+          Powered By <a target="_blank" href="https://hexo.io/">Hexo.</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    <!-- After Footer Scripts -->
+
+<script src="/js/highlight.pack.js"></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function(event) {
+    var codeBlocks = Array.prototype.slice.call(document.getElementsByTagName('pre'))
+    codeBlocks.forEach(function(block, index) {
+      hljs.highlightBlock(block);
+    });
+  });
+</script>
+
+  </body>
+</html>
+
