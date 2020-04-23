@@ -504,6 +504,19 @@ h6 {
 h3 {
   color: #13c2c2 !important;
 }
+.code-caption {
+  clear: both;
+  position: relative;
+  top: 0; /*empty p height*/
+}
+.code-caption .code-caption-label {
+  font-style: italic;
+  font-weight: bold;
+}
+.code-caption .code-caption-copy {
+  float: right;
+}
+@include user-select-none();
 .site-header {
   padding: 2.5rem 0;
   border-bottom: 1px solid #e0e0e0;
