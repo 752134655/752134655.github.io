@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+  <!-- Html Head Tag-->
+  <head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="陈sis">
+  <!-- Open Graph Data -->
+  <meta property="og:title" content="javascript继承的6种方法"/>
+  <meta property="og:description" content="" />
+  <meta property="og:site_name" content="陈sis的笔记"/>
+  <meta property="og:type" content="article" />
+  <meta property="og:image" content="http://yoursite.com"/>
+  
+    <link rel="alternate" href="/atom.xml" title="陈sis的笔记" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+
+  <!-- Site Title -->
+  <title>陈sis的笔记</title>
+
+  <!-- Bootstrap CSS -->
+  
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+
+  <!-- Custom CSS -->
+  
+  
+<link rel="stylesheet" href="/css/style.light.css">
+
+
+  <!-- Google Analytics -->
+  
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+  <script type="text/javascript" src="/js/jquery.min.js"></script>
+  <script type="text/javascript" src="/js/hljs.js"></script>
+  <body>
+    <!-- Page Header -->
+
+
+<header class="site-header header-background" style="background-image: url(/img/default-banner-dark.jpg)">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="page-title with-background-image">
+          <p class="title">javascript继承的6种方法</p>
+          <p class="subtitle"></p>
+        </div>
+        <div class="site-menu with-background-image">
+          <ul>
+            
+              <li>
+                <a href="/">
+                  
+                  Home
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="/archives">
+                  
+                  Archives
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="https://github.com/<your-github-username>" target="_blank" rel="noopener">
+                  
+                  Github
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="mailto:<your-email-address>">
+                  
+                  Email
+                  
+                </a>
+              </li>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<article>
+  <div class="container typo">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-info text-muted">
+          
+            <!-- Author -->
+            <span class="author info">By 陈sis</span>
+          
+          <!-- Date -->
+          <span class="date-time info">On
+            <span class="date">2020-04-27</span>
+            <span class="time">09:55:07</span>
+          </span>
+          
+        </div>
+        <!-- Tags -->
+        
+          <div class="post-tags text-muted">
+            Tags: 
+
+<a class="tag" href="/tags/js/">#js</a>
+
+
+          </div>
+        
+        <!-- Post Main Content -->
+        <div class="post-content">
+          <h3> 想要继承，就必须要提供个父类（继承谁，提供继承的属性）</h3>
+
+<p><img src="/2020/04/27/javascript%E7%BB%A7%E6%89%BF%E7%9A%846%E7%A7%8D%E6%96%B9%E6%B3%95/1.png" alt>　　
+　　</p>
+<h3>一、原型链继承</h3>
+
+<p><img src="/2020/04/27/javascript%E7%BB%A7%E6%89%BF%E7%9A%846%E7%A7%8D%E6%96%B9%E6%B3%95/2.png" alt></p>
+<ul>
+<li>重点：让新实例的原型等于父类的实例。</li>
+<li>特点：<br>1、实例可继承的属性有：实例的构造函数的属性，父类构造函数属性，父类原型的属性。（新实例不会继承父类实例的属性！）</li>
+<li>缺点:<br>1、新实例无法向父类构造函数传参。<br>2、继承单一。<br>3、所有新实例都会共享父类实例的属性。（原型上的属性是共享的，一个实例修改了原型属性，另一个实例的原型属性也会被修改！）</li>
+</ul>
+<h3>二、借用构造函数继承</h3>
+
+<p><img src="/2020/04/27/javascript%E7%BB%A7%E6%89%BF%E7%9A%846%E7%A7%8D%E6%96%B9%E6%B3%95/3.png" alt></p>
+<ul>
+<li>重点：用.call()和.apply()将父类构造函数引入子类函数（在子类函数中做了父类函数的自执行（复制））</li>
+<li>特点：<br>1、只继承了父类构造函数的属性，没有继承父类原型的属性。<br>2、解决了原型链继承缺点1、2、3。<br>3、可以继承多个构造函数属性（call多个）。<br>4、在子实例中可向父实例传参。</li>
+<li>缺点：<br>1、只能继承父类构造函数的属性。<br>2、无法实现构造函数的复用。（每次用每次都要重新调用）<br>3、每个新实例都有父类构造函数的副本，臃肿。</li>
+</ul>
+<h3>三、组合继承（组合原型链继承和借用构造函数继承）（常用）</h3>
+
+<p><img src="/2020/04/27/javascript%E7%BB%A7%E6%89%BF%E7%9A%846%E7%A7%8D%E6%96%B9%E6%B3%95/4.png" alt></p>
+<ul>
+<li>重点：结合了两种模式的优点，传参和复用</li>
+<li>特点：<br>1、可以继承父类原型上的属性，可以传参，可复用。<br>2、每个新实例引入的构造函数属性是私有的。</li>
+<li>缺点：<br>1、调用了两次父类构造函数（耗内存），子类的构造函数会代替原型上的那个父类构造函数。</li>
+</ul>
+<h3>四、原型式继承</h3>
+
+<p><img src="/2020/04/27/javascript%E7%BB%A7%E6%89%BF%E7%9A%846%E7%A7%8D%E6%96%B9%E6%B3%95/5.png" alt></p>
+<ul>
+<li>重点：用一个函数包装一个对象，然后返回这个函数的调用，这个函数就变成了个可以随意增添属性的实例或对象。object.create()就是这个原理。</li>
+<li>特点：<br>1、类似于复制一个对象，用函数来包装。</li>
+<li>缺点：<br>1、所有实例都会继承原型上的属性。<br>2、无法实现复用。（新实例属性都是后面添加的）</li>
+</ul>
+<h3>五、寄生式继承</h3>
+
+<p><img src="/2020/04/27/javascript%E7%BB%A7%E6%89%BF%E7%9A%846%E7%A7%8D%E6%96%B9%E6%B3%95/6.png" alt></p>
+<ul>
+<li>重点：就是给原型式继承外面套了个壳子。</li>
+<li>优点：没有创建自定义类型，因为只是套了个壳子返回对象（这个），这个函数顺理成章就成了创建的新对象。</li>
+<li>缺点：没用到原型，无法复用。</li>
+</ul>
+<h3>六、寄生组合式继承（常用）</h3>
+
+<ul>
+<li>寄生：在函数内返回对象然后调用</li>
+<li>组合：<br>1、函数的原型等于另一个实例。<br>2、在函数中用apply或者call引入另一个构造函数，可传参。<br><img src="/2020/04/27/javascript%E7%BB%A7%E6%89%BF%E7%9A%846%E7%A7%8D%E6%96%B9%E6%B3%95/7.png" alt><br>~~<br><img src="/2020/04/27/javascript%E7%BB%A7%E6%89%BF%E7%9A%846%E7%A7%8D%E6%96%B9%E6%B3%95/8.png" alt>　　　</li>
+<li>重点：修复了组合继承的问题</li>
+</ul>
+<p>继承这些知识点与其说是对象的继承，更像是函数的功能用法，如何用函数做到复用，组合，这些和使用继承的思考是一样的。上述几个继承的方法都可以手动修复他们的缺点，但就是多了这个手动修复就变成了另一种继承模式。</p>
+<p>这些继承模式的学习重点是学它们的思想，不然你会在coding书本上的例子的时候，会觉得明明可以直接继承为什么还要搞这么麻烦。就像原型式继承它用函数复制了内部对象的一个副本，这样不仅可以继承内部对象的属性，还能把函数（对象，来源内部对象的返回）随意调用，给它们添加属性，改个参数就可以改变原型对象，而这些新增的属性也不会相互影响。</p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+    <!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <p class="copyright text-muted">
+          Theme By <a target="_blank" href="https://github.com/levblanc">Levblanc.</a>
+          Inspired By <a target="_blank" href="https://github.com/klugjo/hexo-theme-clean-blog">Clean Blog.</a>
+        <p class="copyright text-muted">
+          Powered By <a target="_blank" href="https://hexo.io/">Hexo.</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    <!-- After Footer Scripts -->
+
+<script src="/js/highlight.pack.js"></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function(event) {
+    var codeBlocks = Array.prototype.slice.call(document.getElementsByTagName('pre'))
+    codeBlocks.forEach(function(block, index) {
+      hljs.highlightBlock(block);
+    });
+  });
+</script>
+
+  </body>
+</html>
+
