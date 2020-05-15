@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html>
+  <!-- Html Head Tag-->
+  <head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="陈sis">
+  <!-- Open Graph Data -->
+  <meta property="og:title" content="面试题2"/>
+  <meta property="og:description" content="" />
+  <meta property="og:site_name" content="陈sis的笔记"/>
+  <meta property="og:type" content="article" />
+  <meta property="og:image" content="http://yoursite.com"/>
+  
+    <link rel="alternate" href="/atom.xml" title="陈sis的笔记" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+
+  <!-- Site Title -->
+  <title>陈sis的笔记</title>
+
+  <!-- Bootstrap CSS -->
+  
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+
+  <!-- Custom CSS -->
+  
+  
+<link rel="stylesheet" href="/css/style.light.css">
+
+
+  <!-- Google Analytics -->
+  
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+  <script type="text/javascript" src="/js/jquery.min.js"></script>
+  <script type="text/javascript" src="/js/hljs.js"></script>
+  <body>
+    <!-- Page Header -->
+
+
+<header class="site-header header-background" style="background-image: url(/img/default-banner-dark.jpg)">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="page-title with-background-image">
+          <p class="title">面试题2</p>
+          <p class="subtitle"></p>
+        </div>
+        <div class="site-menu with-background-image">
+          <ul>
+            
+              <li>
+                <a href="/">
+                  
+                  Home
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="/archives">
+                  
+                  Archives
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="https://github.com/<your-github-username>" target="_blank" rel="noopener">
+                  
+                  Github
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="mailto:<your-email-address>">
+                  
+                  Email
+                  
+                </a>
+              </li>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<article>
+  <div class="container typo">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-info text-muted">
+          
+            <!-- Author -->
+            <span class="author info">By 陈sis</span>
+          
+          <!-- Date -->
+          <span class="date-time info">On
+            <span class="date">2020-05-13</span>
+            <span class="time">17:50:59</span>
+          </span>
+          
+        </div>
+        <!-- Tags -->
+        
+          <div class="post-tags text-muted">
+            Tags: 
+
+<a class="tag" href="/tags/%E9%9D%A2%E8%AF%95/">#面试</a>
+
+
+          </div>
+        
+        <!-- Post Main Content -->
+        <div class="post-content">
+          <h3>css实现图片自适应宽高</h3>
+
+<p>img {<br>  max-width: 100%;<br>  max-height: 100%;<br>}</p>
+<h3>什么是flex，写出常见属性，以及作用</h3>
+
+<p>Flex即：Flexible Box，弹性布局，用来为盒状模型提供最大的灵活性。可以实现类似垂直居中布局。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs plain">.box&#123;<br>  display: flex;<br>&#125;<br><br>.box&#123;<br>  display: inline-flex;<br>&#125;<br><br>&lt;!-- Webkit内核的浏览器，必须加上-webkit前缀 --&gt;<br>.box&#123;<br>  display: -webkit-flex; &#x2F;* Safari *&#x2F;<br>  display: flex;<br>&#125;<br>设为Flex布局以后，子元素的float、clear和vertical-align属性将失效<br><br>采用Flex布局的元素，称为Flex容器（flex container）<br>所有子元素自动成为容器成员，称为Flex项目（flex item）<br>容器默认存在两根轴：水平的主轴（main axis）和垂直的交叉轴（cross axis）。<br></code></pre></td></tr></table></figure>
+<p><img src="/2020/05/13/%E9%9D%A2%E8%AF%95%E9%A2%982/1.webp" alt></p>
+<h3>容器有6个属性</h3>
+* flex-direction 决定主轴的方向
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs plain">.box &#123;<br>  flex-direction: row | row-reverse | column | column-reverse;<br>&#125;<br>&#x2F;&#x2F; row（默认值）：主轴为水平方向，起点在左端<br>&#x2F;&#x2F; row-reverse：主轴为水平方向，起点在右端<br>&#x2F;&#x2F; column：主轴为垂直方向，起点在上沿<br>&#x2F;&#x2F; column-reverse：主轴为垂直方向，起点在下沿<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><p>flex-wrap 定义，如果一条轴线排不下，如何换行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs plain">.box&#123;<br>  flex-wrap: nowrap | wrap | wrap-reverse;<br>&#125;<br>&#x2F;&#x2F; nowrap（默认）：不换行<br>&#x2F;&#x2F; wrap：换行，第一行在上方<br>&#x2F;&#x2F; wrap-reverse：换行，第一行在下方<br></code></pre></td></tr></table></figure></li>
+<li><p>flex-flow 是flex-direction属性和flex-wrap属性的简写形式，默认值为row nowrap</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs plain">.box &#123;<br>  flex-flow: &lt;flex-direction&gt; &lt;flex-wrap&gt;;<br>&#125;<br></code></pre></td></tr></table></figure></li>
+<li><p>justify-content 定义了项目在主轴上的对齐方式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs plain">.box &#123;<br>  justify-content: flex-start | flex-end | center | space-between | space-around;<br>&#125;<br>&#x2F;&#x2F; 具体对齐方式与轴的方向有关。下面假设主轴为从左到右<br>&#x2F;&#x2F; flex-start（默认值）：左对齐<br>&#x2F;&#x2F; flex-end：右对齐<br>&#x2F;&#x2F; center： 居中<br>&#x2F;&#x2F; space-between：两端对齐，项目之间的间隔都相等。<br>&#x2F;&#x2F; space-around：每个项目两侧的间隔相等。所以，项目之间的间隔比项目与边框的间隔大一倍。<br></code></pre></td></tr></table></figure></li>
+<li><p>align-items 定义项目在交叉轴上如何对齐</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs plain">.box &#123;<br>  align-items: flex-start | flex-end | center | baseline | stretch;<br>&#125;<br>&#x2F;&#x2F; 具体的对齐方式与交叉轴的方向有关，下面假设交叉轴从上到下<br>&#x2F;&#x2F; flex-start：交叉轴的起点对齐。<br>&#x2F;&#x2F; flex-end：交叉轴的终点对齐。<br>&#x2F;&#x2F; center：交叉轴的中点对齐。<br>&#x2F;&#x2F; baseline: 项目的第一行文字的基线对齐。<br>&#x2F;&#x2F; stretch（默认值）：如果项目未设置高度或设为auto，将占满整个容器的高度。<br></code></pre></td></tr></table></figure></li>
+<li><p>align-content 定义了多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs plain">.box &#123;<br>  align-content: flex-start | flex-end | center | space-between | space-around | stretch;<br>&#125;<br>&#x2F;&#x2F; flex-start：与交叉轴的起点对齐。<br>&#x2F;&#x2F; flex-end：与交叉轴的终点对齐。<br>&#x2F;&#x2F; center：与交叉轴的中点对齐。<br>&#x2F;&#x2F; space-between：与交叉轴两端对齐，轴线之间的间隔平均分布。<br>&#x2F;&#x2F; space-around：每根轴线两侧的间隔都相等。所以，轴线之间的间隔比轴线与边框的间隔大一倍。<br>&#x2F;&#x2F; stretch（默认值）：轴线占满整个交叉轴。<br></code></pre></td></tr></table></figure>
+<h3>项目有6个属性</h3>
+</li>
+<li><p>order 定义项目的排列顺序。数值越小，排列越靠前，默认为0。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs plain">.item &#123;<br>  order: &lt;integer&gt;;<br>&#125;<br></code></pre></td></tr></table></figure></li>
+<li><p>定义项目的放大比例，默认为0，即如果存在剩余空间，也不放大</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs plain">.item &#123;<br>  flex-grow: &lt;number&gt;; &#x2F;* default 0 *&#x2F;<br>&#125;<br></code></pre></td></tr></table></figure></li>
+<li><p>flex-shrink 定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小。负值对该属性无效</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs plain">.item &#123;<br>  flex-shrink: &lt;number&gt;; &#x2F;* default 1 *&#x2F;<br>&#125;<br></code></pre></td></tr></table></figure></li>
+<li><p>flex-basis 在分配多余空间之前，项目占据的主轴空间（main size）。浏览器根据这个属性，计算主轴是否有多余空间。它的默认值为auto，即项目的本来大小。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs plain">.item &#123;<br>  flex-basis: &lt;length&gt; | auto; &#x2F;* default auto *&#x2F;<br>&#125;<br></code></pre></td></tr></table></figure></li>
+<li><p>flex 是flex-grow, flex-shrink 和 flex-basis的简写，默认值为0 1 auto。后两个属性可选。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs plain">.item &#123;<br>  flex: none | [ &lt;&#39;flex-grow&#39;&gt; &lt;&#39;flex-shrink&#39;&gt;? || &lt;&#39;flex-basis&#39;&gt; ]<br>&#125;<br>&#x2F;&#x2F; 该属性有两个快捷值：auto (1 1 auto) 和 none (0 0 auto)<br></code></pre></td></tr></table></figure></li>
+<li><p>align-self 允许单个项目有与其他项目不一样的对齐方式，可覆盖align-items属性。默认值为auto，表示继承父元素的align-items属性，如果没有父元素，则等同于stretch</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs plain">.item &#123;<br>  align-self: auto | flex-start | flex-end | center | baseline | stretch;<br>&#125;<br>&#x2F;&#x2F; 除了auto，其他都与align-items属性完全一致<br></code></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3>BFC是什么？</h3>
+
+<p>BFC 即 Block Formatting Contexts (块级格式化上下文)，它属于普通流，即：元素按照其在 HTML 中的先后位置至上而下布局，在这个过程中，行内元素水平排列，直到当行被占满然后换行，块级元素则会被渲染为完整的一个新行，除非另外指定，否则所有元素默认都是普通流定位，也可以说，普通流中元素的位置由该元素在 HTML 文档中的位置决定。<br>可以把 BFC 理解为一个封闭的大箱子，箱子内部的元素无论如何翻江倒海，都不会影响到外部。</p>
+<p>只要元素满足下面任一条件即可触发 BFC 特性</p>
+<ul>
+<li>body 根元素</li>
+<li>浮动元素：float 除 none 以外的值</li>
+<li>绝对定位元素：position (absolute、fixed)</li>
+<li>display 为 inline-block、table-cells、flex</li>
+<li>overflow 除了 visible 以外的值 (hidden、auto、scroll)</li>
+</ul>
+<h3>前端鉴权是怎么实现的？</h3>
+参考下： https://segmentfault.com/a/1190000012675759
+
+<h3>什么是mvvm？</h3>
+
+<p>MVVM分为Model、View、ViewModel三者。</p>
+<p>Model 代表数据模型，数据和业务逻辑都在Model层中定义；</p>
+<p>View 代表UI视图，负责数据的展示；<br>ViewModel 负责监听 Model 中数据的改变并且控制视图的更新，处理用户交互操作；<br>Model 和 View 并无直接关联，而是通过 ViewModel 来进行联系的，Model 和 ViewModel 之间有着双向数据绑定的联系。<br>这种模式实现了 Model 和 View 的数据自动同步，因此开发者只需要专注对数据的维护操作即可，而不需要自己操作 dom。</p>
+<h3>写 React/Vue 项目时为什么要在组件中写 key，其作用是什么？</h3>
+
+<p>key 的作用是为了在 diff 算法执行时更快的找到对应的节点，提高 diff 速度。</p>
+<h3>解析 ['1', '2', '3'].map(parseInt)</h3>
+
+<p>答案：[1, NaN, NaN]<br>这个 callback 一共可以接收三个参数，其中第一个参数代表当前被处理的元素，而第二个参数代表该元素的索引。<br>而 parseInt 则是用来解析字符串的，使字符串成为指定基数的整数。<br>parseInt(string, radix)接收两个参数，第一个表示被处理的值（字符串），第二个表示为解析时的基数。<br>了解这两个函数后，我们可以模拟一下运行情况；<br>parseInt(‘1’, 0) //radix 为 0 时，且 string 参数不以“0x”和“0”开头时，按照 10 为基数处理。这个时候返回 1；<br>parseInt(‘2’, 1) // 基数为 1（1 进制）表示的数中，最大值小于 2，所以无法解析，返回 NaN；<br>parseInt(‘3’, 2) // 基数为 2（2 进制）表示的数中，最大值小于 3，所以无法解析，返回 NaN。<br>map 函数返回的是一个数组，所以最后结果为 [1, NaN, NaN]。</p>
+<h3>什么是防抖和节流？有什么区别？如何实现？</h3>
+
+<p>1)防抖<br>触发高频事件后 n 秒内函数只会执行一次，如果 n 秒内高频事件再次被触发，则重新计算时间；<br>思路：每次触发事件时都取消之前的延时调用方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs plain">function debounce(fn) &#123;<br>  let timeout &#x3D; null; &#x2F;&#x2F; 创建一个标记用来存放定时器的返回值<br>  return function () &#123;<br>    clearTimeout(timeout); &#x2F;&#x2F; 每当用户输入的时候把前一个 setTimeout clear 掉<br>    timeout &#x3D; setTimeout(() &#x3D;&gt; &#123; &#x2F;&#x2F; 然后又创建一个新的 setTimeout, 这样就能保证输入字符后的 interval 间隔内如果还有字符输入的话，就不会执行 fn 函数<br>      fn.apply(this, arguments);<br>    &#125;, 500);<br>  &#125;;<br>&#125;<br>function sayHi() &#123;<br>  console.log(&#39;防抖成功&#39;);<br>&#125;<br>var inp &#x3D; document.getElementById(&#39;inp&#39;);<br>inp.addEventListener(&#39;input&#39;, debounce(sayHi)); &#x2F;&#x2F; 防抖<br></code></pre></td></tr></table></figure>
+<p>2)节流</p>
+<p>高频事件触发，但在 n 秒内只会执行一次，所以节流会稀释函数的执行频率。<br>思路：每次触发事件时都判断当前是否有等待执行的延时函数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs plain">function throttle(fn) &#123;<br>  let canRun &#x3D; true; &#x2F;&#x2F; 通过闭包保存一个标记<br>  return function () &#123;<br>    if (!canRun) return; &#x2F;&#x2F; 在函数开头判断标记是否为 true，不为 true 则 return<br>    canRun &#x3D; false; &#x2F;&#x2F; 立即设置为 false<br>    setTimeout(() &#x3D;&gt; &#123; &#x2F;&#x2F; 将外部传入的函数的执行放在 setTimeout 中<br>      fn.apply(this, arguments);<br>      &#x2F;&#x2F; 最后在 setTimeout 执行完毕后再把标记设置为 true(关键) 表示可以执行下一次循环了。当定时器没有执行的时候标记永远是 false，在开头被 return 掉<br>      canRun &#x3D; true;<br>    &#125;, 500);<br>  &#125;;<br>&#125;<br>function sayHi(e) &#123;<br>  console.log(e.target.innerWidth, e.target.innerHeight);<br>&#125;<br>window.addEventListener(&#39;resize&#39;, throttle(sayHi));<br></code></pre></td></tr></table></figure>
+
+<h3>介绍下 Set、Map、WeakSet 和 WeakMap 的区别？</h3>
+
+<p>1)Set</p>
+<p>成员唯一、无序且不重复；<br>[value, value]，键值与键名是一致的（或者说只有键值，没有键名）;<br>可以遍历，方法有：add、delete、has。</p>
+<p>2)WeakSet</p>
+<p>成员都是对象；<br>成员都是弱引用，可以被垃圾回收机制回收，可以用来保存 DOM 节点，不容易造成内存泄漏；<br>不能遍历，方法有 add、delete、has。</p>
+<p>3)Map</p>
+<p>本质上是键值对的集合，类似集合；<br>可以遍历，方法很多，可以跟各种数据格式转换。</p>
+<p>4)WeakMap</p>
+<p>只接受对象最为键名（null 除外），不接受其他类型的值作为键名；<br>键名是弱引用，键值可以是任意的，键名所指向的对象可以被垃圾回收，此时键名是无效的；<br>不能遍历，方法有 get、set、has、delete。</p>
+<h3>问题：下面输出的顺序</h3>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><code class="hljs plain">async function async1() &#123;<br>   console.log(&#39;async1 start&#39;)<br>   await async2()<br>   console.log(&#39;async1 end&#39;)<br>&#125;<br>async function async2() &#123;<br>   console.log(&#39;async2&#39;)<br>&#125;<br><br>console.log(&#39;script start&#39;)<br>setTimeout(function () &#123;<br>   console.log(&#39;settimeout&#39;)<br>&#125;)<br>async1()<br>new Promise(function (resolve) &#123;<br>   console.log(&#39;promise1&#39;)<br>   resolve()<br>&#125;).then(function () &#123;<br>   console.log(&#39;promise2&#39;)<br>&#125;)<br>console.log(&#39;script end&#39;)<br><br>script start<br>async1 start<br>async2<br>promise1<br>script end<br>async1 end<br>promise2<br>settimeout<br></code></pre></td></tr></table></figure>
+
+<h3>JS 异步解决方案的发展历程以及优缺点。</h3>
+
+<p>1)回调函数（callback）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs plain">setTimeout(() &#x3D;&gt; &#123;<br>     &#x2F;&#x2F; callback 函数体<br>&#125;, 1000)<br></code></pre></td></tr></table></figure>
+<p>缺点：回调地狱，不能用 try catch 捕获错误，不能 return<br>回调地狱的根本问题在于：<br>缺乏顺序性： 回调地狱导致的调试困难，和大脑的思维方式不符；<br>嵌套函数存在耦合性，一旦有所改动，就会牵一发而动全身，即（控制反转）；<br>嵌套函数过多的多话，很难处理错误。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs plain">ajax(&#39;XXX1&#39;, () &#x3D;&gt; &#123;<br>     &#x2F;&#x2F; callback 函数体<br>   ajax(&#39;XXX2&#39;, () &#x3D;&gt; &#123;<br>         &#x2F;&#x2F; callback 函数体<br>       ajax(&#39;XXX3&#39;, () &#x3D;&gt; &#123;<br>             &#x2F;&#x2F; callback 函数体<br>       &#125;)<br>   &#125;)<br>&#125;)<br></code></pre></td></tr></table></figure>
+<p>优点：解决了同步的问题（只要有一个任务耗时很长，后面的任务都必须排队等着，会拖延整个程序的执行）。</p>
+<p>2)Promise</p>
+<p>Promise 就是为了解决 callback 的问题而产生的。<br>Promise 实现了链式调用，也就是说每次 then 后返回的都是一个全新 Promise，如果我们在 then 中 return ，return 的结果会被 Promise.resolve() 包装。<br>优点：解决了回调地狱的问题。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs plain">ajax(&#39;XXX1&#39;)<br>.then(res &#x3D;&gt; &#123;<br>      &#x2F;&#x2F; 操作逻辑<br>    return ajax(&#39;XXX2&#39;)<br>&#125;).then(res &#x3D;&gt; &#123;<br>      &#x2F;&#x2F; 操作逻辑<br>    return ajax(&#39;XXX3&#39;)<br>&#125;).then(res &#x3D;&gt; &#123;<br>      &#x2F;&#x2F; 操作逻辑<br>&#125;)<br></code></pre></td></tr></table></figure>
+<p>缺点：无法取消 Promise ，错误需要通过回调函数来捕获。</p>
+<p>3)Generator</p>
+<p>特点：可以控制函数的执行，可以配合 co 函数库使用。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs plain">function *fetch() &#123;<br>   yield ajax(&#39;XXX1&#39;, () &#x3D;&gt; &#123;&#125;)<br>   yield ajax(&#39;XXX2&#39;, () &#x3D;&gt; &#123;&#125;)<br>   yield ajax(&#39;XXX3&#39;, () &#x3D;&gt; &#123;&#125;)<br>&#125;<br>let it &#x3D; fetch()<br>let result1 &#x3D; it.next()<br>let result2 &#x3D; it.next()<br>let result3 &#x3D; it.next()<br></code></pre></td></tr></table></figure>
+<p>4)Async/await</p>
+<p>async、await 是异步的终极解决方案。<br>优点是：代码清晰，不用像 Promise 写一大堆 then 链，处理了回调地狱的问题；<br>缺点：await 将异步代码改造成同步代码，如果多个异步操作没有依赖性而使用 await 会导致性能上的降低。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs plain">async function test() &#123;<br> &#x2F;&#x2F; 以下代码没有依赖性的话，完全可以使用 Promise.all 的方式<br> &#x2F;&#x2F; 如果有依赖性的话，其实就是解决回调地狱的例子了<br> await fetch(&#39;XXX1&#39;)<br> await fetch(&#39;XXX2&#39;)<br> await fetch(&#39;XXX3&#39;)<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>下面来看一个使用 await 的例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs plain">let a &#x3D; 0<br>let b &#x3D; async () &#x3D;&gt; &#123;<br>   a &#x3D; a + await 10<br>   console.log(&#39;2&#39;, a) &#x2F;* -&gt; &#39;2&#39; 10 *&#x2F;<br>&#125;<br>b()<br>a++<br>console.log(&#39;1&#39;, a) &#x2F;&#x2F; -&gt; &#39;1&#39; 1<br></code></pre></td></tr></table></figure>
+<p>对于以上代码你可能会有疑惑，让我来解释下原因：<br>首先函数 b 先执行，在执行到 await 10 之前变量 a 还是 0，因为 await 内部实现了 generator ，generator 会保留堆栈中东西，所以这时候 a = 0 被保存了下来；<br>因为 await 是异步操作，后来的表达式不返回 Promise 的话，就会包装成 Promise.reslove(返回值)，然后会去执行函数外的同步代码；<br>同步代码执行完毕后开始执行异步代码，将保存下来的值拿出来使用，这时候 a = 0 + 10。<br>上述解释中提到了 await 内部实现了 generator，其实 await 就是 generator 加上 Promise的语法糖，且内部实现了自动执行 generator。如果你熟悉 co 的话，其实自己就可以实现这样的语法糖。</p>
+<h3>谈谈你对 TCP 三次握手和四次挥手的理解</h3>
+
+<p><img src="/2020/05/13/%E9%9D%A2%E8%AF%95%E9%A2%982/01.png" alt></p>
+<h3>前端如何优化网站性能？</h3>
+
+<p>1、减少 HTTP 请求数量</p>
+<p>在浏览器与服务器进行通信时，主要是通过 HTTP 进行通信。浏览器与服务器需要经过三次握手，每次握手需要花费大量时间。而且不同浏览器对资源文件并发请求数量有限（不同浏览器允许并发数），一旦 HTTP 请求数量达到一定数量，资源请求就存在等待状态，这是很致命的，因此减少 HTTP 的请求数量可以很大程度上对网站性能进行优化。</p>
+<p>CSS Sprites</p>
+<p>国内俗称CSS精灵，这是将多张图片合并成一张图片达到减少HTTP请求的一种解决方案，可以通过CSS的background属性来访问图片内容。这种方案同时还可以减少图片总字节数。</p>
+<p>合并 CSS 和 JS 文件</p>
+<p>现在前端有很多工程化打包工具，如：grunt、gulp、webpack等。为了减少 HTTP 请求数量，可以通过这些工具再发布前将多个CSS或者多个JS合并成一个文件。</p>
+<p>采用 lazyLoad</p>
+<p>俗称懒加载，可以控制网页上的内容在一开始无需加载，不需要发请求，等到用户操作真正需要的时候立即加载出内容。这样就控制了网页资源一次性请求数量。</p>
+<p>2、控制资源文件加载优先级</p>
+<p>浏览器在加载HTML内容时，是将HTML内容从上至下依次解析，解析到link或者script标签就会加载href或者src对应链接内容，为了第一时间展示页面给用户，就需要将CSS提前加载，不要受 JS 加载影响。</p>
+<p>一般情况下都是CSS在头部，JS在底部。</p>
+<p>3、利用浏览器缓存</p>
+<p>浏览器缓存是将网络资源存储在本地，等待下次请求该资源时，如果资源已经存在就不需要到服务器重新请求该资源，直接在本地读取该资源。</p>
+<p>4、减少重排（Reflow）</p>
+<p>基本原理：重排是DOM的变化影响到了元素的几何属性（宽和高），浏览器会重新计算元素的几何属性，会使渲染树中受到影响的部分失效，浏览器会验证 DOM 树上的所有其它结点的visibility属性，这也是Reflow低效的原因。如果Reflow的过于频繁，CPU使用率就会急剧上升。</p>
+<p>减少Reflow，如果需要在DOM操作时添加样式，尽量使用 增加class属性，而不是通过style操作样式。</p>
+<p>5、减少 DOM 操作</p>
+<p>6、图标使用 IconFont 替换</p>
+<h3>网页从输入网址到渲染完成经历了哪些过程？</h3>
+
+<p>大致可以分为如下7步：</p>
+<p>输入网址；</p>
+<p>发送到DNS服务器，并获取域名对应的web服务器对应的ip地址；</p>
+<p>与web服务器建立TCP连接；</p>
+<p>浏览器向web服务器发送http请求；</p>
+<p>web服务器响应请求，并返回指定url的数据（或错误信息，或重定向的新的url地址）；</p>
+<p>浏览器下载web服务器返回的数据及解析html源文件；</p>
+<p>生成DOM树，解析css和js，渲染页面，直至显示完成；</p>
+<h3>jQuery获取的dom对象和原生的dom对象有何区别？</h3>
+
+<p>js原生获取的dom是一个对象，jQuery对象就是一个数组对象，其实就是选择出来的元素的数组集合，所以说他们两者是不同的对象类型不等价。</p>
+<p>原生DOM对象转jQuery对象：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs plain">var box &#x3D; document.getElementById(&#39;box&#39;);<br>var $box &#x3D; $(box);<br></code></pre></td></tr></table></figure>
+<p>jQuery对象转原生DOM对象：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs plain">var $box &#x3D; $(&#39;#box&#39;);<br>var box &#x3D; $box[0];<br></code></pre></td></tr></table></figure>
+
+<ol start="13">
+<li>jQuery如何扩展自定义方法</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs plain">(jQuery.fn.myMethod&#x3D;function () &#123;<br>      alert(&#39;myMethod&#39;);<br>&#125;)<br>&#x2F;&#x2F; 或者：<br>(function ($) &#123;<br>       $.fn.extend(&#123;<br>            myMethod : function () &#123;<br>                 alert(&#39;myMethod&#39;);<br>            &#125;<br>       &#125;)<br>&#125;)(jQuery)<br></code></pre></td></tr></table></figure>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+    <!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <p class="copyright text-muted">
+          Theme By <a target="_blank" href="https://github.com/levblanc">Levblanc.</a>
+          Inspired By <a target="_blank" href="https://github.com/klugjo/hexo-theme-clean-blog">Clean Blog.</a>
+        <p class="copyright text-muted">
+          Powered By <a target="_blank" href="https://hexo.io/">Hexo.</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    <!-- After Footer Scripts -->
+
+<script src="/js/highlight.pack.js"></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function(event) {
+    var codeBlocks = Array.prototype.slice.call(document.getElementsByTagName('pre'))
+    codeBlocks.forEach(function(block, index) {
+      hljs.highlightBlock(block);
+    });
+  });
+</script>
+
+  </body>
+</html>
+

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+  <!-- Html Head Tag-->
+  <head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="陈sis">
+  <!-- Open Graph Data -->
+  <meta property="og:title" content="vue面试题"/>
+  <meta property="og:description" content="" />
+  <meta property="og:site_name" content="陈sis的笔记"/>
+  <meta property="og:type" content="article" />
+  <meta property="og:image" content="http://yoursite.com"/>
+  
+    <link rel="alternate" href="/atom.xml" title="陈sis的笔记" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+
+  <!-- Site Title -->
+  <title>陈sis的笔记</title>
+
+  <!-- Bootstrap CSS -->
+  
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+
+  <!-- Custom CSS -->
+  
+  
+<link rel="stylesheet" href="/css/style.light.css">
+
+
+  <!-- Google Analytics -->
+  
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+  <script type="text/javascript" src="/js/jquery.min.js"></script>
+  <script type="text/javascript" src="/js/hljs.js"></script>
+  <body>
+    <!-- Page Header -->
+
+
+<header class="site-header header-background" style="background-image: url(/img/default-banner-dark.jpg)">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="page-title with-background-image">
+          <p class="title">vue面试题</p>
+          <p class="subtitle"></p>
+        </div>
+        <div class="site-menu with-background-image">
+          <ul>
+            
+              <li>
+                <a href="/">
+                  
+                  Home
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="/archives">
+                  
+                  Archives
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="https://github.com/<your-github-username>" target="_blank" rel="noopener">
+                  
+                  Github
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="mailto:<your-email-address>">
+                  
+                  Email
+                  
+                </a>
+              </li>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<article>
+  <div class="container typo">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-info text-muted">
+          
+            <!-- Author -->
+            <span class="author info">By 陈sis</span>
+          
+          <!-- Date -->
+          <span class="date-time info">On
+            <span class="date">2020-05-15</span>
+            <span class="time">17:50:59</span>
+          </span>
+          
+        </div>
+        <!-- Tags -->
+        
+          <div class="post-tags text-muted">
+            Tags: 
+
+<a class="tag" href="/tags/%E9%9D%A2%E8%AF%95/">#面试</a>
+
+
+          </div>
+        
+        <!-- Post Main Content -->
+        <div class="post-content">
+          <h3>谈谈你对MVVM开发模式的理解</h3>
+
+<p>MVVM分为Model、View、ViewModel三者。<br>Model：代表数据模型，数据和业务逻辑都在Model层中定义；<br>View：代表UI视图，负责数据的展示；<br>ViewModel：负责监听Model中数据的改变并且控制视图的更新，处理用户交互操作；<br>Model和View并无直接关联，而是通过ViewModel来进行联系的，Model和ViewModel之间有着双向数据绑定的联系。因此当Model中的数据改变时会触发View层的刷新，View中由于用户交互操作而改变的数据也会在Model中同步。<br>这种模式实现了Model和View的数据自动同步，因此开发者只需要专注对数据的维护操作即可，而不需要自己操作dom。</p>
+<h3> Vue 有哪些指令？</h3>
+
+<p>v-html、v-show、v-if、v-for、v-text等等。</p>
+<h3>v-if 和 v-show 有什么区别？</h3>
+
+<p>v-show 仅仅控制元素的显示方式，将 display 属性在 block 和 none 来回切换；而v-if会控制这个 DOM 节点的存在与否。当我们需要经常切换某个元素的显示/隐藏时，使用v-show会更加节省性能上的开销；当只需要一次显示或隐藏时，使用v-if更加合理。</p>
+<h3>简述Vue的响应式原理</h3>
+
+<p>当一个Vue实例创建时，vue会遍历data选项的属性，用 Object.defineProperty 将它们转为getter/setter并且在内部追踪相关依赖，在属性被访问和修改时通知变化。<br>每个组件实例都有相应的watcher程序实例，它会在组件渲染的过程中把属性记录为依赖，之后当依赖项的setter被调用时，会通知watcher重新计算，从而致使它关联的组件得以更新。<br><img src="/2020/05/15/vue%E9%9D%A2%E8%AF%95%E9%A2%98/01.png" alt></p>
+<h3>子组件传值父组件</h3>
+一、子组件代码
+
+<p>template部分</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs plain">&lt;template&gt;<br>  &lt;section&gt;<br>    &lt;input v-model&#x3D;&quot;message&quot;&#x2F;&gt;<br>  &lt;&#x2F;section&gt;<br>&lt;&#x2F;template&gt;<br></code></pre></td></tr></table></figure>
+<p>js部分</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs plain">&lt;script&gt;<br>export default &#123;<br>  data()&#123;<br>    return &#123;<br>      message:&#39;请输入&#39;<br>    &#125;<br>  &#125;,<br>&#x2F;&#x2F;通过watch来监听message是否改变<br>  watch:&#123;<br>    &#39;message&#39;:function()&#123;<br>      this.$emit(&#39;getMessage&#39;,this.message);&#x2F;&#x2F;主要是通过$emit方法来实现传参的方式，第一个参数是自定义事件名称，第二个则是要传的数据<br>    &#125;<br>  &#125;<br>&#125;<br>&lt;&#x2F;script&gt;<br></code></pre></td></tr></table></figure>
+<p>其实不一定要用wacth来监听数据变化，直接给input加个输入事件，也是可以的。</p>
+<p>二、父组件代码</p>
+<p>template部分</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs plain">&lt;template&gt;<br>  &lt;div id&#x3D;&quot;app&quot;&gt;<br>    &lt;!--getMessage是子组件那边定义的 自定义事件--&gt;<br>    &lt;test  @getMessage&#x3D;&quot;getVal&quot;&gt;&lt;&#x2F;test&gt;<br>    &lt;div&gt;<br>      子组件输入的值:&#123;&#123;chindVal&#125;&#125;<br>    &lt;&#x2F;div&gt;<br>  &lt;&#x2F;div&gt;<br>&lt;&#x2F;template&gt;<br></code></pre></td></tr></table></figure>
+<p>js部分</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs plain">&lt;script&gt;<br>import test from &#39;.&#x2F;components&#x2F;header&#39;<br>export default &#123;<br>  data()&#123;<br>    return &#123;<br>      chindVal:&#39;&#39;,<br>    &#125;<br>  &#125;,<br>  components:&#123;<br>    test<br>  &#125;,<br>  methods:&#123;<br>    getVal(msg)&#123;&#x2F;&#x2F;msg就是传过来的数据了  这只是个形参  名字可以随意<br>      this.chindVal&#x3D;msg;&#x2F;&#x2F;然后将数据赋值给chindVal<br>    &#125;<br>  &#125;<br>&#125;<br>&lt;&#x2F;script&gt;<br></code></pre></td></tr></table></figure>
+<p>总结：<br>1.子组件传参给父组件主要是通过$emit方法来实现的。<br>2.在子组件中使用$emit方法，一般它接受两个参数，第一个是自定义事件(这个事件在父组件中需要用到)，第二个参数就是需要传的数据了。<br>3.而在父组件里，在调用的标签上引用子组件定义的那个事件，然后事件绑定一个函数。在函数里面进行赋值即可。</p>
+<h3>Vue中如何监控某个属性值的变化？</h3>
+
+<p>比如现在需要监控data中， obj.a 的变化。Vue中监控对象属性的变化你可以这样：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs plain">watch: &#123;<br>    obj: &#123;<br>    handler (newValue, oldValue) &#123;<br>      console.log(&#39;obj changed&#39;)<br>    &#125;,<br>    deep: true<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>deep属性表示深层遍历，但是这么写会监控obj的所有属性变化，并不是我们想要的效果，所以做点修改：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs plain">watch: &#123;<br> &#39;obj.a&#39;: &#123;<br>    handler (newName, oldName) &#123;<br>      console.log(&#39;obj.a changed&#39;)<br>    &#125;<br> &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>还有一种方法，可以通过computed 来实现，只需要：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs plain">computed: &#123;<br>    a1 () &#123;<br>      return this.obj.a<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>利用计算属性的特性来实现，当依赖改变时，便会重新计算一个新值。</p>
+<h3>Vue中给data中的对象属性添加一个新的属性时会发生什么，如何解决？</h3>
+
+<p>示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs plain">&lt;template&gt;<br>&lt;div&gt;<br>  &lt;ul&gt;<br>    &lt;li v-for&#x3D;&quot;value in obj&quot; :key&#x3D;&quot;value&quot;&gt;<br>      &#123;&#123;value&#125;&#125;<br>    &lt;&#x2F;li&gt;<br>  &lt;&#x2F;ul&gt;<br>  &lt;button @click&#x3D;&quot;addObjB&quot;&gt;添加obj.b&lt;&#x2F;button&gt;<br>&lt;&#x2F;div&gt;<br>&lt;&#x2F;template&gt;<br>&lt;script&gt;<br>export default &#123;<br>  data () &#123;<br>    return &#123;<br>      obj: &#123;<br>        a: &#39;obj.a&#39;<br>      &#125;<br>    &#125;<br>  &#125;,<br>  methods: &#123;<br>    addObjB () &#123;<br>      this.obj.b &#x3D; &#39;obj.b&#39;<br>      console.log(this.obj)<br>    &#125;<br>  &#125;<br>&#125;<br>&lt;&#x2F;script&gt;<br></code></pre></td></tr></table></figure>
+<p>点击button会发现， obj.b 已经成功添加，但是视图并未刷新：<br>原因在于在Vue实例创建时， obj.b 并未声明，因此就没有被Vue转换为响应式的属性，自然就不会触发视图的更新，这时就需要使用Vue的全局api—— $set()：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs plain">addObjB () &#123;<br>  &#x2F;&#x2F; this.obj.b &#x3D; &#39;obj.b&#39;<br>  this.$set(this.obj, &#39;b&#39;, &#39;obj.b&#39;)<br>  console.log(this.obj)<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>$set() 方法相当于手动的去把 obj.b 处理成一个响应式的属性，此时视图也会跟着改变了.</p>
+<h3>delete和Vue.delete删除数组的区别</h3>
+
+<p>delete只是被删除的元素变成了 empty/undefined 其他的元素的键值还是不变。<br>Vue.delete 直接删除了数组 改变了数组的键值。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs plain">var a&#x3D;[1,2,3,4]<br>var b&#x3D;[1,2,3,4]<br>delete a[1]<br>console.log(a)<br>this.$delete(b,1)<br>console.log(b)<br></code></pre></td></tr></table></figure>
+<p><img src="/2020/05/15/vue%E9%9D%A2%E8%AF%95%E9%A2%98/02.png" alt><br><img src="/2020/05/15/vue%E9%9D%A2%E8%AF%95%E9%A2%98/03.png" alt></p>
+<h3>vue中组件的懒加载和路由懒加载</h3>
+
+<ul>
+<li>常用的懒加载方式有两种：即使用vue异步组件 和 ES中的import</li>
+</ul>
+<p>1.未用懒加载，vue中路由代码如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs plain">import Vue from &#39;vue&#39;<br>import Router from &#39;vue-router&#39;<br>import HelloWorld from &#39;@&#x2F;components&#x2F;HelloWorld&#39;<br>Vue.use(Router)<br>export default new Router(&#123;<br>  routes: [<br>    &#123;<br>      path: &#39;&#x2F;&#39;,<br>      name: &#39;HelloWorld&#39;,<br>      component:HelloWorld<br>    &#125;<br>  ]<br>&#125;)<br></code></pre></td></tr></table></figure>
+<p>2.vue异步组件实现懒加载<br>方法如下：component：resolve=&gt;(require([‘需要加载的路由的地址’])，resolve)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs plain">import Vue from &#39;vue&#39;<br>import Router from &#39;vue-router&#39;<br>　　&#x2F;* 此处省去之前导入的HelloWorld模块 *&#x2F;<br>Vue.use(Router)<br><br>export default new Router(&#123;<br>  routes: [<br>    &#123;<br>      path: &#39;&#x2F;&#39;,<br>      name: &#39;HelloWorld&#39;,<br>      component: resolve&#x3D;&gt;(require([&quot;@&#x2F;components&#x2F;HelloWorld&quot;],resolve))<br>    &#125;<br>  ]<br>&#125;)<br></code></pre></td></tr></table></figure>
+<p>3.ES 提出的import方法，（——最常用——）<br>方法如下：const HelloWorld = （）=&gt;import(‘需要加载的模块地址’)<br>（不加 { } ，表示直接return）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs plain">import Vue from &#39;vue&#39;<br>import Router from &#39;vue-router&#39;<br><br>Vue.use(Router)<br><br>const HelloWorld &#x3D; ()&#x3D;&gt;import(&quot;@&#x2F;components&#x2F;HelloWorld&quot;)<br>export default new Router(&#123;<br>  routes: [<br>    &#123;<br>      path: &#39;&#x2F;&#39;,<br>      name: &#39;HelloWorld&#39;,<br>      component:HelloWorld<br>    &#125;<br>  ]<br>&#125;)<br></code></pre></td></tr></table></figure>
+
+<p>4.组件懒加载</p>
+<p>与路由懒加载相同，<br>1)原来组件中写法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs plain">&lt;template&gt;<br>  &lt;div class&#x3D;&quot;hello&quot;&gt;<br>  &lt;One-com&gt;&lt;&#x2F;One-com&gt;<br>  1111<br>  &lt;&#x2F;div&gt;<br>&lt;&#x2F;template&gt;<br><br>&lt;script&gt;<br>import One from &#39;.&#x2F;one&#39;<br>export default &#123;<br>  components:&#123;<br>    &quot;One-com&quot;:One<br>  &#125;,<br>  data () &#123;<br>    return &#123;<br>      msg: &#39;Welcome to Your Vue.js App&#39;<br>    &#125;<br>  &#125;<br>&#125;<br>&lt;&#x2F;script&gt;<br></code></pre></td></tr></table></figure>
+<p>2)const方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs plain">&lt;template&gt;<br>  &lt;div class&#x3D;&quot;hello&quot;&gt;<br>    &lt;One-com&gt;&lt;&#x2F;One-com&gt;<br>  &lt;&#x2F;div&gt;<br>&lt;&#x2F;template&gt;<br><br>&lt;script&gt;<br>const One &#x3D; ()&#x3D;&gt;import(&quot;.&#x2F;one&quot;);<br>export default &#123;<br>  components:&#123;<br>    &quot;One-com&quot;:One<br>  &#125;,<br>  data () &#123;<br>    return &#123;<br>      msg: &#39;Welcome to Your Vue.js App&#39;<br>    &#125;<br>  &#125;<br>&#125;<br>&lt;&#x2F;script&gt;<br></code></pre></td></tr></table></figure>
+<p>3)异步方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs plain">&lt;template&gt;<br>  &lt;div class&#x3D;&quot;hello&quot;&gt;<br>    &lt;One-com&gt;&lt;&#x2F;One-com&gt;<br>  &lt;&#x2F;div&gt;<br>&lt;&#x2F;template&gt;<br><br>&lt;script&gt;<br>export default &#123;<br>  components:&#123;<br>    &quot;One-com&quot;:resolve&#x3D;&gt;([&#39;.&#x2F;one&#39;],resolve)<br>  &#125;,<br>  data () &#123;<br>    return &#123;<br>      msg: &#39;Welcome to Your Vue.js App&#39;<br>    &#125;<br>  &#125;<br>&#125;<br>&lt;&#x2F;script&gt;<br></code></pre></td></tr></table></figure>
+<p>总结<br>路由和组件的常用两种懒加载方式：<br>1、vue异步组件实现路由懒加载<br>component：resolve=&gt;([‘需要加载的路由的地址’，resolve])<br>2、es提出的import(推荐使用这种方式)<br>const HelloWorld = （）=&gt;import(‘需要加载的模块地址’)</p>
+<h3>如何优化SPA应用的首屏加载速度慢的问题？</h3>
+
+<p>将公用的JS库通过script标签外部引入，减小 app.bundel 的大小，让浏览器并行下载资源文件，提高下载速度；<br>在配置 路由时，页面和组件使用懒加载的方式引入，进一步缩小 app.bundel 的体积，在调用某个组件时再加载对应的js文件；<br>加一个首屏loading图，提升用户体验；</p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+    <!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <p class="copyright text-muted">
+          Theme By <a target="_blank" href="https://github.com/levblanc">Levblanc.</a>
+          Inspired By <a target="_blank" href="https://github.com/klugjo/hexo-theme-clean-blog">Clean Blog.</a>
+        <p class="copyright text-muted">
+          Powered By <a target="_blank" href="https://hexo.io/">Hexo.</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    <!-- After Footer Scripts -->
+
+<script src="/js/highlight.pack.js"></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function(event) {
+    var codeBlocks = Array.prototype.slice.call(document.getElementsByTagName('pre'))
+    codeBlocks.forEach(function(block, index) {
+      hljs.highlightBlock(block);
+    });
+  });
+</script>
+
+  </body>
+</html>
+
