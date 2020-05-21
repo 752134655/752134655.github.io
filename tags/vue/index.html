@@ -8,10 +8,10 @@
   <meta name="description" content="">
   <meta name="author" content="陈sis">
   <!-- Open Graph Data -->
-  <meta property="og:title" content="解决JavaScript拖动时同时触发点击事件的BUG"/>
+  <meta property="og:title" content="陈sis的笔记"/>
   <meta property="og:description" content="" />
   <meta property="og:site_name" content="陈sis的笔记"/>
-  <meta property="og:type" content="article" />
+  <meta property="og:type" content="website" />
   <meta property="og:image" content="http://yoursite.com"/>
   
     <link rel="alternate" href="/atom.xml" title="陈sis的笔记" type="application/atom+xml">
@@ -41,7 +41,8 @@
   <script type="text/javascript" src="/js/jquery.min.js"></script>
   <script type="text/javascript" src="/js/hljs.js"></script>
   <body>
-    <!-- Page Header -->
+    <!-- Archive Header -->
+<!-- Page Header -->
 
 
 <header class="site-header header-background" style="background-image: url(/img/default-banner-dark.jpg)">
@@ -49,7 +50,7 @@
     <div class="row">
       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
         <div class="page-title with-background-image">
-          <p class="title">解决JavaScript拖动时同时触发点击事件的BUG</p>
+          <p class="title">Blog Archives</p>
           <p class="subtitle"></p>
         </div>
         <div class="site-menu with-background-image">
@@ -94,42 +95,42 @@
   </div>
 </header>
 
-<article>
-  <div class="container typo">
-    <div class="row">
-      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-        <div class="post-info text-muted">
-          
-            <!-- Author -->
-            <span class="author info">By 陈sis</span>
-          
-          <!-- Date -->
-          <span class="date-time info">On
-            <span class="date">2020-04-17</span>
-            <span class="time">18:06:21</span>
-          </span>
-          
-        </div>
-        <!-- Tags -->
-        
-          <div class="post-tags text-muted">
-            Tags: 
+<!-- Archive List -->
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      
+        <div class="archive-item">
+  <a href="/2020/05/21/vuex/" class="post-title">
+    vuex
+  </a>
+  <div class="date text-muted">Posted on 2020-05-21 10:28:32</div>
+</div>
 
-<a class="tag" href="/tags/js/">#js</a> <a class="tag" href="/tags/%E9%97%AE%E9%A2%98/">#问题</a>
+      
+        <div class="archive-item">
+  <a href="/2020/05/15/vue%E9%9D%A2%E8%AF%95%E9%A2%98/" class="post-title">
+    vue面试题
+  </a>
+  <div class="date text-muted">Posted on 2020-05-15 10:17:38</div>
+</div>
 
+      
 
-          </div>
-        
-        <!-- Post Main Content -->
-        <div class="post-content">
-          <p>通过mousedown时记录下鼠标的位置x1，y1，mouseup时记录下鼠标的位置x2,y2，<br>通过计算判断拖动距离来判断此时是触发点击事件还是拖动事件。</p>
-<p>var _val=Math.sqrt((x2-x1)<em>(x2-x1)+(y2-y1)</em>(y2-y1));<br>//判断<br>if(_val&gt;=0&amp;&amp;_val&lt;=2){<br>    dragFlag=true;<br>}else{<br>    dragFlag=false;<br>}</p>
-
-        </div>
-      </div>
     </div>
   </div>
-</article>
+</div>
+<!-- Pagination -->
+<div class="container">
+  <div class="row">
+    <div class="col-lg-10 col-md-10 col-md-offset-1">
+      <ul class="pagination">
+          
+          
+      </ul>
+    </div>
+  </div>
+</div>
 
 
 
