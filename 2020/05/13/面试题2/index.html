@@ -10,18 +10,18 @@
   <!-- Open Graph Data -->
   <meta property="og:title" content="面试题2"/>
   <meta property="og:description" content="" />
-  <meta property="og:site_name" content="陈sis的笔记"/>
+  <meta property="og:site_name" content="陈sis的博客"/>
   <meta property="og:type" content="article" />
   <meta property="og:image" content="http://yoursite.com"/>
   
-    <link rel="alternate" href="/atom.xml" title="陈sis的笔记" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="陈sis的博客" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
   
 
   <!-- Site Title -->
-  <title>陈sis的笔记</title>
+  <title>陈sis的博客</title>
 
   <!-- Bootstrap CSS -->
   
@@ -58,7 +58,7 @@
               <li>
                 <a href="/">
                   
-                  Home
+                  主页
                   
                 </a>
               </li>
@@ -66,23 +66,15 @@
               <li>
                 <a href="/archives">
                   
-                  Archives
+                  档案
                   
                 </a>
               </li>
             
               <li>
-                <a href="https://github.com/<your-github-username>" target="_blank" rel="noopener">
+                <a href="http://101.200.152.80/" target="_blank" rel="noopener">
                   
-                  Github
-                  
-                </a>
-              </li>
-            
-              <li>
-                <a href="mailto:<your-email-address>">
-                  
-                  Email
+                  服务器
                   
                 </a>
               </li>
@@ -106,7 +98,7 @@
           <!-- Date -->
           <span class="date-time info">On
             <span class="date">2020-05-13</span>
-            <span class="time">18:06:21</span>
+            <span class="time">10:53:43</span>
           </span>
           
         </div>
@@ -277,10 +269,17 @@
 <p>jQuery对象转原生DOM对象：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs plain">var $box &#x3D; $(&#39;#box&#39;);<br>var box &#x3D; $box[0];<br></code></pre></td></tr></table></figure>
 
-<ol start="13">
-<li>jQuery如何扩展自定义方法</li>
-</ol>
+<h3>jQuery如何扩展自定义方法</h3>
+
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs plain">(jQuery.fn.myMethod&#x3D;function () &#123;<br>      alert(&#39;myMethod&#39;);<br>&#125;)<br>&#x2F;&#x2F; 或者：<br>(function ($) &#123;<br>       $.fn.extend(&#123;<br>            myMethod : function () &#123;<br>                 alert(&#39;myMethod&#39;);<br>            &#125;<br>       &#125;)<br>&#125;)(jQuery)<br></code></pre></td></tr></table></figure>
+
+<h3>使以下代码正常运行</h3>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs plain">JavaScript 代码:<br>const a &#x3D; [1, 2, 3, 4, 5];<br>a.multiply();<br>console.log(a); &#x2F;&#x2F; [1, 2, 3, 4, 5, 1, 4, 9, 16, 25]<br></code></pre></td></tr></table></figure>
+<p>答案：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs plain">Araay.protitype.multiply &#x3D; function() &#123;<br>  this.forEach((ele) &#x3D;&gt; &#123;<br>    this.push(Math.pow(ele, 2));<br>  &#125;)<br>&#125;<br></code></pre></td></tr></table></figure>
+<h3>使以下代码正常运行</h3>
+
         </div>
       </div>
     </div>
